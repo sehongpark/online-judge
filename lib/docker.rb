@@ -1,6 +1,6 @@
 # /lib/judge.rb
 
-module Judge
+module Docker
   def hello
     "hello"
   end
