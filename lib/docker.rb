@@ -11,7 +11,8 @@ module Docker
     Open3.capture3("docker exec judge ls /root")
   end
 
-  def judge(code, lang)
+  # class method
+  def self.judge(code, lang)
     Open3.capture3("docker exec judge run.sh #{code} #{lang}")
   end
 end
