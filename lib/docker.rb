@@ -22,6 +22,6 @@ module Docker
   end
 
   def self.exec(cmd)
-    Open3.capture3(cmd)
+    Open3.capture3("docker exec judge #{cmd}")
   end
 end
