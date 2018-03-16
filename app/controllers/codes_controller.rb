@@ -7,7 +7,8 @@ class CodesController < ApplicationController
   def index
     @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World"); // ".exec(" must be removed.. } }'
     @lang = "java"
-    @result = Docker.judge(@code, @lang)
+    @code_path = Docker.save_code(@code)
+    @result = Docker.judge(@code_path, @lang)
     @codes = Code.all
   end
 

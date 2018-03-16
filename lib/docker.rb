@@ -16,9 +16,13 @@ module Docker
 #  end
 
   # class method
-  def self.judge(code, lang)
+  def self.judge(code_path, lang)
     # !가 들어가면 문제가 생김.. bash에서 특별한 의미로 사용..
-    Open3.capture3("docker exec judge run.sh #{code} \"#{lang}\"")
+    Open3.capture3("docker exec judge run.sh #{code_path} #{lang}")
+  end
+
+  def self.save_code
+    "/root/code.txt"
   end
 
   def self.exec(cmd)
