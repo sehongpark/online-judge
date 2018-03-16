@@ -12,8 +12,7 @@ module Docker
   end
 
   # class method
-  def self.judge(code, lang)
-    "docker exec judge run.sh \"#{code}\" \"#{lang}\""
-    #Open3.capture3("docker exec judge run.sh \"#{code}\" \"#{lang}\"")
+  def self.judge(code_path, lang)
+    Open3.capture3("docker exec judge run.sh #{code_path} \"#{lang}\"")
   end
 end
