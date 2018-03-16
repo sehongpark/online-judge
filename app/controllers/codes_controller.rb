@@ -5,7 +5,7 @@ class CodesController < ApplicationController
   # GET /codes
   # GET /codes.json
   def index
-    code = 'public class Main {}'
+    code = 'public class Main { public static void main(String[] args) { } }'
     lang = "java"
     @result = Docker.judge(code, lang)
     @codes = Code.all
