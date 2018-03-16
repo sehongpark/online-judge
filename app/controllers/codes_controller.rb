@@ -5,10 +5,9 @@ class CodesController < ApplicationController
   # GET /codes
   # GET /codes.json
   def index
-    @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World!"); // ".exec(" must be removed.. } }'
+    @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World"); // ".exec(" must be removed.. } }'
     @lang = "java"
-    @code_path = Docker.save_code(@sub_code)
-    @result = Docker.judge(@code_path, @lang)
+    @result = Docker.judge(@code, @lang)
     @codes = Code.all
   end
 
