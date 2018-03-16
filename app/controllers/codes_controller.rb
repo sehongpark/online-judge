@@ -6,7 +6,7 @@ class CodesController < ApplicationController
   # GET /codes.json
   def index
     @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World!"); // ".exec(" must be removed.. } }'
-    @sub_code = code.gsub(/\s+/, " ")
+    @sub_code = @code.gsub(/\s+/, " ")
     @lang = "java"
     @result = Docker.judge(@sub_code, @lang)
     @codes = Code.all
