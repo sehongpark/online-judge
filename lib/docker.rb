@@ -1,4 +1,4 @@
-# /lib/judge.rb
+# /lib/docker.rb
 require 'open3'
 
 module Docker

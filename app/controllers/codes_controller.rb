@@ -1,9 +1,13 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :edit, :update, :destroy]
+  include Docker
 
   # GET /codes
   # GET /codes.json
   def index
+    code = "public class Main { public static void main(String[] args) { System.out.println("Hello World!"); // ".exec(" must be removed.. } }"
+    lang = "java"
+    @result = Docker.judge(code, lang)
     @codes = Code.all
   end
 
