@@ -20,4 +20,8 @@ module Docker
     # !가 들어가면 문제가 생김.. bash에서 특별한 의미로 사용..
     Open3.capture3("docker exec judge run.sh #{code} \"#{lang}\"")
   end
+
+  def self.exec(cmd)
+    Open3.capture3(cmd)
+  end
 end
