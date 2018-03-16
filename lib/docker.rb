@@ -21,7 +21,7 @@ module Docker
     Open3.capture3("docker exec judge run.sh #{code_path} #{lang}")
   end
 
-  def self.save_code
+  def self.save_code(code)
     "/root/code.txt"
   end
 
