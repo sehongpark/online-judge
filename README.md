@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# online-judge
+>>>>>>> 1a6bcfb0cfabcb8bd6fd05a00ed54664a68e4471
