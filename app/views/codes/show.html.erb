@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @code.text %>
+</p>
+
+<p>
+  <strong>Lang:</strong>
+  <%= @code.lang %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @code.status %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @code.output %>
+</p>
+
+<%= link_to 'Edit', edit_code_path(@code) %> |
+<%= link_to 'Back', codes_path %>
