@@ -17,9 +17,9 @@ module Docker
     # compgen -k에서 나오는 키워드들 문제 안생기게 해야할 듯??
     args_str = args_arr.join(" ")
     cmd = "docker exec judge run.sh #{code_path} #{lang} #{args_str}"
-    @@semaphore.synchronize {
-      Open3.capture3(cmd)
-    }
+    #@@semaphore.synchronize {
+    #  Open3.capture3(cmd)
+    #}
   end
 
   def self.save_code(code, lang)
