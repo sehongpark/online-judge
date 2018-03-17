@@ -7,7 +7,7 @@ class CodesController < ApplicationController
   def index
     @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World"); // ".exec(" must be removed.. } }'
     @lang = "java"
-    @code_path = Docker.save_code(@code)
+    @code_path = Docker.save_code(@code, @lang)
     @result = Docker.judge(@code_path, @lang)
     @codes = Code.all
   end
@@ -30,7 +30,7 @@ class CodesController < ApplicationController
   # POST /codes.json
   def create
     @code = Code.new(code_params)
-    code_path = Docker.save_code(@code.text)
+    code_path = Docker.save_code(@code.text, @code.lang)
     result = Docker.judge(code_path, @code.lang)
     @code.output = result[0]
     @code.status = result[2]

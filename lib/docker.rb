@@ -20,12 +20,19 @@ module Docker
     }
   end
 
-  def self.save_code(code)
+  def self.save_code(code, lang)
     random_hex = SecureRandom.hex
     dir = "/var/tmp"
-    filename = "Main#{random_hex}.java"
+    filename = "wrong.file"
     full_path = "#{dir}/#{filename}"
-    code = code.gsub("public class Main", "public class Main#{random_hex}")
+    case lang
+    when "java"
+      filename = "Main#{random_hex}.java"
+      code = code.gsub("public class Main", "public class Main#{random_hex}")
+      code = code.gsub(".exec(", "")
+    else
+    end
+
     File.write(full_path, code)
     full_path
   end
