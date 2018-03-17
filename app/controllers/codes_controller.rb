@@ -29,8 +29,8 @@ class CodesController < ApplicationController
     file_path = Docker.save_code(@code.text, @code.lang)
     args_arr = @code.args.split(" ") # string to array
     result = Docker.judge(file_path, @code.lang, args_arr)
-    @code.output = "result[0]"
-    @code.status = "result[2]"
+    @code.output = result[0]
+    @code.status = result[2]
 
     respond_to do |format|
       if @code.save
