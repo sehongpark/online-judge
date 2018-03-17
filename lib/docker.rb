@@ -1,6 +1,7 @@
 # /lib/docker.rb
 require 'open3'
 require 'thread'
+require 'securerandom'
 
 module Docker
   # class variable
@@ -20,7 +21,11 @@ module Docker
   end
 
   def self.save_code(code)
-    "/var/tmp/Hello.java"
+    dir = "/var/tmp"
+    filename = "Main_#{SecureRandom.hex}.java"
+    full_path = "#{dir}/#{filename}"
+    File.write(full_path, code)
+    full_path
   end
 
   def self.exec(cmd)
