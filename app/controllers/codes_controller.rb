@@ -32,6 +32,7 @@ class CodesController < ApplicationController
     @code = Code.new(code_params)
     code_path = Docker.save_code(@code.text)
     result = Docker.judge(@code_path, @lang)
+    @code.text = code_path
     @code.output = result[0]
     @code.status = result[2]
 
