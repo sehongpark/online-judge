@@ -24,7 +24,7 @@ module Docker
     random_hex = SecureRandom.hex
     dir = "/var/tmp"
     filename = "wrong.file"
-    full_path = "#{dir}/#{filename}"
+
     case lang
     when "java"
       filename = "Main#{random_hex}.java"
@@ -33,6 +33,7 @@ module Docker
     else
     end
 
+    full_path = "#{dir}/#{filename}"
     File.write(full_path, code)
     full_path
   end
