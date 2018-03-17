@@ -28,8 +28,8 @@ class CodesController < ApplicationController
     @code = Code.new(code_params)
     file_path = Docker.save_code(@code.text, @code.lang)
     args_arr = @code.args.split(" ") # string to array
-    result = Docker.judge(code_path, lang, args_arr)
-    @code.output = result
+    #result = Docker.judge(code_path, lang, args_arr)
+    @code.output = args_arr
     @code.status = result
 
     respond_to do |format|
