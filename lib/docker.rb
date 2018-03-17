@@ -20,7 +20,7 @@ module Docker
   end
 
   def self.save_code(code)
-    "/var/Hello.java"
+    "/var/tmp/Hello.java"
   end
 
   def self.exec(cmd)
