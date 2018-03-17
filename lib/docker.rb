@@ -12,14 +12,14 @@ module Docker
   end
 
   # class method
-  def self.judge(code_path, lang, *args_arr)
+  def self.judge(code_path, lang, args_arr)
     # !가 들어가면 문제가 생김.. bash에서 특별한 의미로 사용..
     # compgen -k에서 나오는 키워드들 문제 안생기게 해야할 듯??
-    #args_str = args_arr.join(" ")
-    #cmd = "docker exec judge run.sh #{code_path} #{lang} #{args_str}"
-    #@@semaphore.synchronize {
-    #  Open3.capture3(cmd)
-    #}
+    args_str = args_arr.join(" ")
+    cmd = "docker exec judge run.sh #{code_path} #{lang} #{args_str}"
+    @@semaphore.synchronize {
+      Open3.capture3(cmd)
+    }
   end
 
   def self.save_code(code, lang)
