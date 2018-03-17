@@ -1,14 +1,9 @@
 class CodesController < ApplicationController
   before_action :set_code, only: [:show, :edit, :update, :destroy]
-  include Docker
 
   # GET /codes
   # GET /codes.json
   def index
-    @code = 'public class Main { public static void main(String[] args) { System.out.println("Hello World"); // ".exec(" must be removed.. } }'
-    @lang = "java"
-    @code_path = Docker.save_code(@code, @lang)
-    @result = Docker.judge(@code_path, @lang)
     @codes = Code.all
   end
 
@@ -30,10 +25,6 @@ class CodesController < ApplicationController
   # POST /codes.json
   def create
     @code = Code.new(code_params)
-    code_path = Docker.save_code(@code.text, @code.lang)
-    result = Docker.judge(code_path, @code.lang)
-    @code.output = result[0]
-    @code.status = result[2]
 
     respond_to do |format|
       if @code.save
@@ -78,6 +69,6 @@ class CodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def code_params
-      params.require(:code).permit(:text, :lang, :status, :output)
+      params.require(:code).permit(:text, :args, :lang, :status, :output)
     end
 end

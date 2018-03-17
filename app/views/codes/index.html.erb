@@ -1,18 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Codes</h1>
-<h3>code</h3>
-<%= @code %>
-<h3>lang</h3>
-<%= @lang %>
-<h3>code_path</h3>
-<%= @code_path %>
-<h3>result</h3>
-<%= @result %>
+
 <table>
   <thead>
     <tr>
       <th>Text</th>
+      <th>Args</th>
       <th>Lang</th>
       <th>Status</th>
       <th>Output</th>
@@ -24,6 +18,7 @@
     <% @codes.each do |code| %>
       <tr>
         <td><%= code.text %></td>
+        <td><%= code.args %></td>
         <td><%= code.lang %></td>
         <td><%= code.status %></td>
         <td><%= code.output %></td>

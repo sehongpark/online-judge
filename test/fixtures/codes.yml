@@ -2,12 +2,14 @@
 
 one:
   text: MyString
+  args: MyString
   lang: MyString
   status: MyString
   output: MyString
 
 two:
   text: MyString
+  args: MyString
   lang: MyString
   status: MyString
   output: MyString

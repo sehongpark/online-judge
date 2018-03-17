@@ -17,7 +17,7 @@ class CodesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create code" do
     assert_difference('Code.count') do
-      post codes_url, params: { code: { lang: @code.lang, output: @code.output, status: @code.status, text: @code.text } }
+      post codes_url, params: { code: { args: @code.args, lang: @code.lang, output: @code.output, status: @code.status, text: @code.text } }
     end
 
     assert_redirected_to code_url(Code.last)
@@ -34,7 +34,7 @@ class CodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update code" do
-    patch code_url(@code), params: { code: { lang: @code.lang, output: @code.output, status: @code.status, text: @code.text } }
+    patch code_url(@code), params: { code: { args: @code.args, lang: @code.lang, output: @code.output, status: @code.status, text: @code.text } }
     assert_redirected_to code_url(@code)
   end
 
