@@ -1,1 +1,1 @@
-Application.config.relative_url_root = '/src'
+Judge::Application.config.relative_url_root = '/src'
