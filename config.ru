@@ -2,6 +2,6 @@
 
 require_relative 'config/environment'
 
-map <AppName>::Application.config.relative_url_root || "/" do
+map Judge::Application.config.relative_url_root || "/" do
   run Rails.application
 end
