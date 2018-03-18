@@ -1,0 +1,1 @@
+Application.config.relative_url_root = '/src'
